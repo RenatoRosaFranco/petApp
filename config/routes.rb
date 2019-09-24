@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Dashboard
   # @implemented
-  namespace :dashboardo do
+  namespace :dashboard do
   	resources :profiles, only: [:index, :show, :edit, :update]
   	resources :accounts, only: [:index, :edit, :update, :destroy]
   	resources :notifications, only: [:index, :show]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_035656) do
+ActiveRecord::Schema.define(version: 2019_09_24_042318) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,58 @@ ActiveRecord::Schema.define(version: 2019_09_24_035656) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "body"
+    t.boolean "readed"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "pet_races", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "pet_type_id"
+    t.string "slug"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_type_id"], name: "index_pet_races_on_pet_type_id"
+    t.index ["user_id"], name: "index_pet_races_on_user_id"
+  end
+
+  create_table "pet_types", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "slug"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pet_types_on_user_id"
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.date "birthdate"
+    t.integer "pet_type_id"
+    t.integer "pet_race_id"
+    t.string "size"
+    t.string "gender"
+    t.boolean "vacined"
+    t.boolean "castred"
+    t.boolean "vermifuged"
+    t.boolean "chiped"
+    t.boolean "adopted"
+    t.text "description"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_race_id"], name: "index_pets_on_pet_race_id"
+    t.index ["pet_type_id"], name: "index_pets_on_pet_type_id"
+    t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
