@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Dashboard
   # @implemented
-  namespace :dashboard do
+  namespace :dashboard, constraint: { subdomain: 'dashboard' } do
   	resources :profiles, only: [:index, :show, :edit, :update]
   	resources :accounts, only: [:index, :edit, :update, :destroy]
   	resources :notifications, only: [:index, :show]
