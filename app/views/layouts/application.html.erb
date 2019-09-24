@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title><%= yield :title %> | AdotaAi</title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css"><%= yield :css %></style>
+    <script type="text/javascript"><%= yield :js %></script>
+  </head>
+  <body class="<%= controller.controller_name %>" data-spy='scroll'>
+    <%= yield %>
+  </body>
+</html>
