@@ -9,6 +9,9 @@ class User < ApplicationRecord
 	has_many :pets, dependent: :destroy
 	has_many :pet_types, dependent: :destroy
 	has_many :pet_races, dependent: :destroy
+	has_many :favorites, dependent: :destroy
+	has_many :likes, dependent: :destroy
+	has_many :reports, dependent: :destroy
 
 	after_create :create_profile
   # Include default devise modules. Others available are:
