@@ -12,6 +12,7 @@ class User < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :likes, dependent: :destroy
 	has_many :reports, dependent: :destroy
+	has_many :adoption_requests, dependent: :destroy
 
 	after_create :create_profile
   # Include default devise modules. Others available are:
