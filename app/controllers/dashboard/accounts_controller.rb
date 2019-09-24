@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Dashboard
-	class AccountsController < ApplicationsController
+	class AccountsController < ApplicationController
 		before_action :set_account, only: [:edit, :update, :destroy]
 		respond_to :html, :json, :js
 

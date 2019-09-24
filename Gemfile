@@ -56,6 +56,7 @@ group :development, :test do
   gem 'rails_best_practices'
   gem 'factory_bot_rails'
   gem 'rubocop'
+  gem 'rails-erd'
   gem 'simplecov'
   gem 'shoulda'
   gem 'faker'
