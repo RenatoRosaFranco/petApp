@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_035543) do
+ActiveRecord::Schema.define(version: 2019_09_24_035656) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,20 @@ ActiveRecord::Schema.define(version: 2019_09_24_035543) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "avatar"
+    t.string "name"
+    t.text "bio"
+    t.integer "state_id"
+    t.integer "city_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_profiles_on_city_id"
+    t.index ["state_id"], name: "index_profiles_on_state_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "regions", force: :cascade do |t|
